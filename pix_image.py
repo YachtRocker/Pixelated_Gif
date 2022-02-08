@@ -1,8 +1,10 @@
 from PIL import Image
 import glob
 from natsort import natsorted
+import sys
 
-img = 'Meuq2.png'
+
+img = sys.argv[1]
 # open image
 img = Image.open(img)
 size = 128
