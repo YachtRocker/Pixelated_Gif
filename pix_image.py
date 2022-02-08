@@ -1,5 +1,6 @@
 from PIL import Image
 import glob
+from natsort import natsorted
 
 img = 'Meuq2.png'
 # open image
@@ -28,6 +29,6 @@ fp_in = "./results/image_*.png"
 fp_out = "./results/image.gif"
 
 # https://pillow.readthedocs.io/en/stable/handbook/image-file-formats.html#gif
-img, *imgs = [Image.open(f) for f in sorted(glob.glob(fp_in))]
+img, *imgs = [Image.open(f) for f in natsorted(glob.glob(fp_in), reverse=True)]
 img.save(fp=fp_out, format='GIF', append_images=imgs,
          save_all=True, duration=600, loop=0)
